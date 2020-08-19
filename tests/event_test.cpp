@@ -36,9 +36,9 @@ TEST_CASE( "send_event_through_bus", "[event]" )
     test_subscriber sub;
     bus.subscribe( &sub );
 
-    cata::event e = cata::event::make<event_type::character_kills_monster>(
-                        character_id( 7 ), mtype_id( "zombie" ) );
-    bus.send( e );
+    cata::event original_event = cata::event::make<event_type::character_kills_monster>(
+                                     character_id( 7 ), mtype_id( "zombie" ) );
+    bus.send( original_event );
     REQUIRE( sub.events.size() == 1 );
     const cata::event &e = sub.events[0];
     CHECK( e.type() == event_type::character_kills_monster );
