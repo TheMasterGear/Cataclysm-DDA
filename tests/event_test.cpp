@@ -37,7 +37,7 @@ TEST_CASE( "send_event_through_bus", "[event]" )
     bus.subscribe( &sub );
 
     cata::event original_event = cata::event::make<event_type::character_kills_monster>(
-                                     character_id( 7 ), mtype_id( "zombie" ) );
+                                     character_id( 5 ), mtype_id( "zombie" ) );
     bus.send( original_event );
     REQUIRE( sub.events.size() == 1 );
     const cata::event &e = sub.events[0];
