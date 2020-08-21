@@ -22,15 +22,23 @@ TEST_CASE( "construct_event", "[event]" )
     CHECK( e.get<mtype_id>( "victim_type" ) == mtype_id( "zombie" ) );
 }
 
-class test_subscriber : public event_subscriber
+struct test_subscriber : public event_subscriber
 {
-    public:
-        void notify( const cata::event &e ) override {
-            events.push_back( e );
-        }
+    void notify( const cata::event &e ) override {
+        events.push_back( e );
+    }
 
-        std::vector<cata::event> events;
+    std::vector<cata::event> events;
 };
+
+TEST_CASE( "notify_subscriber", "[event]" )
+{
+    test_subscriber sub;
+    cata::event original_event = cata::event::make<event_type::character_kills_monster>(
+                                     character_id( 5 ), mtype_id( "zombie" ) );
+    sub.notify( original_event );
+    REQUIRE( sub.events.size() == 1 );
+}
 
 TEST_CASE( "send_event_through_bus", "[event]" )
 {
