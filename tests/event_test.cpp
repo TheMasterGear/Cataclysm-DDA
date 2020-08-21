@@ -22,7 +22,8 @@ TEST_CASE( "construct_event", "[event]" )
     CHECK( e.get<mtype_id>( "victim_type" ) == mtype_id( "zombie" ) );
 }
 
-struct test_subscriber : public event_subscriber {
+class test_subscriber : public event_subscriber {
+    public:
     void notify( const cata::event &e ) override {
         events.push_back( e );
     }
