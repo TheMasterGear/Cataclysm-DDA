@@ -22,13 +22,14 @@ TEST_CASE( "construct_event", "[event]" )
     CHECK( e.get<mtype_id>( "victim_type" ) == mtype_id( "zombie" ) );
 }
 
-class test_subscriber : public event_subscriber {
+class test_subscriber : public event_subscriber
+{
     public:
-    void notify( const cata::event &e ) override {
-        events.push_back( e );
-    }
+        void notify( const cata::event &e ) override {
+            events.push_back( e );
+        }
 
-    std::vector<cata::event> events;
+        std::vector<cata::event> events;
 };
 
 TEST_CASE( "send_event_through_bus", "[event]" )
