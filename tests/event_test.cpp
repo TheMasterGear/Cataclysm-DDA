@@ -30,6 +30,15 @@ struct test_subscriber : public event_subscriber {
     std::vector<cata::event> events;
 };
 
+TEST_CASE( "WTF_XCode", "[event]" )
+{
+    std::vector<cata::event> test_events;
+    cata::event original_event = cata::event::make<event_type::character_kills_monster>(
+                                     character_id( 5 ), mtype_id( "zombie" ) );
+    test_events.push_back( original_event );
+    REQUIRE( test_events.size() == 1 );
+}
+
 TEST_CASE( "notify_subscriber", "[event]" )
 {
     test_subscriber sub;
