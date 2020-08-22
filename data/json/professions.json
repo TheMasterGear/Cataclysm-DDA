@@ -955,10 +955,11 @@
     "points": 1,
     "items": {
       "both": {
-        "items": [ "pants", "socks", "boots_combat", "longshirt", "jacket_light", "baton", "knife_folding", "hat_ball", "wristwatch" ],
+        "items": [ "pants", "socks", "boots_combat", "longshirt", "jacket_light", "knife_folding", "hat_ball", "wristwatch" ],
         "entries": [
           { "group": "charged_cell_phone" },
           { "group": "charged_flashlight" },
+          { "item": "baton", "custom-flags": [ "auto_wield" ] },
           { "item": "m9", "ammo-item": "9mm", "charges": 15, "container-item": "holster" },
           { "item": "m9mag", "ammo-item": "9mm", "charges": 15 },
           { "item": "m9mag", "ammo-item": "9mm", "charges": 15 }
@@ -1348,7 +1349,7 @@
           { "item": "usp_45", "ammo-item": "45_acp", "charges": 12, "container-item": "holster" },
           { "item": "legpouch_large", "contents-group": "army_mags_usp45" },
           { "item": "762_51", "charges": 20 },
-          { "item": "M24", "ammo-item": "762_51", "charges": 20, "container-item": "back_holster" }
+          { "item": "M24", "ammo-item": "762_51", "charges": 20, "contents-item": [ "shoulder_strap" ] }
         ]
       },
       "male": [ "boxer_shorts" ],
@@ -3125,8 +3126,13 @@
     "points": 0,
     "items": {
       "both": {
-        "items": [ "pants", "socks", "boots", "longshirt", "jacket_light", "baton", "pockknife", "wristwatch" ],
-        "entries": [ { "group": "charged_cell_phone" }, { "group": "charged_flashlight" }, { "group": "charged_tazer" } ]
+        "items": [ "pants", "socks", "boots", "longshirt", "jacket_light", "holster", "pockknife", "wristwatch" ],
+        "entries": [
+          { "group": "charged_cell_phone" },
+          { "group": "charged_flashlight" },
+          { "group": "charged_tazer" },
+          { "item": "baton", "custom-flags": [ "auto_wield" ] }
+        ]
       },
       "male": [ "boxer_shorts" ],
       "female": [ "bra", "boy_shorts" ]
